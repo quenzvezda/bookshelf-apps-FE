@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookshelf Apps</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Quicksand:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <header>
+      <div class="head-icon">
+        <img src="images/bookshelf-icon.png" alt="" />
+        <h3>Bookshelf<br />Apps</h3>
+      </div>
+      <div class="menu-icon" onclick="toggleMenu()">☰</div>
+      <div class="header-content">
+        <h3 id="navInputBook">Input Buku</h3>
+        <h3 id="navSearchBooks">Cari Buku</h3>
+        <h3 id="navAllBooks">Rak Buku</h3>
+      </div>
+    </header>
+    <main>
+      <section id="inputBook" class="inputBook active">
+        <h2>Input Buku Baru</h2>
+        <form>
+          <div class="input">
+            <label for="inputBookTitle">Judul</label>
+            <input id="inputBookTitle" type="text" required />
+          </div>
+          <div class="input">
+            <label for="inputBookAuthor">Penulis</label>
+            <input id="inputBookAuthor" type="text" required />
+          </div>
+          <div class="input">
+            <label for="inputBookYear">Tahun</label>
+            <input id="inputBookYear" type="number" required />
+          </div>
+          <div class="input_inline">
+            <label for="inputBookIsComplete">Selesai dibaca</label>
+            <input id="inputBookIsComplete" type="checkbox" />
+          </div>
+          <button id="bookSubmit" type="submit">Submit</button>
+        </form>
+      </section>
+      <section id="searchBooks" class="searchBooks">
+        <h2>Cari Buku</h2>
+        <form>
+          <div class="input">
+            <label for="inputBookTitle">Judul</label>
+            <input id="inputBookTitle" type="text" required />
+          </div>
+          <button id="bookSubmit" type="submit">Submit</button>
+        </form>
+      </section>
+      <section id="allBooks" class="allBooks">
+        <h2>Belum dibaca</h2>
+        <h2>Sudah dibaca</h2>
+      </section>
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>
