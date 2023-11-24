@@ -35,9 +35,8 @@ header {
 }
 
 .header-content {
-  /* Bungkus <nav> dan <h3> dalam elemen dengan class ini */
   display: flex;
-  flex: 1; /* Ini akan membuatnya memenuhi ruang yang tersedia */
+  flex: 1;
   justify-content: center;
   align-items: center;
 }
@@ -51,7 +50,7 @@ header {
   font-size: 24px;
   cursor: pointer;
   position: absolute;
-  right: 20px; /* Atur ikon menu di sebelah kanan */
+  right: 20px;
   align-items: center;
   justify-content: center;
 }
@@ -64,11 +63,11 @@ main {
 }
 
 section {
-  display: none; /* Default semua section disembunyikan */
+  display: none;
 }
 
 section.active {
-  display: block; /* Hanya section yang aktif yang ditampilkan */
+  display: block;
   display: flex;
   flex-direction: column;
   padding: 16px;
@@ -78,16 +77,13 @@ section.active {
   color: #5a4a32;
 }
 
-/* Styling untuk judul section */
 section.active > h2 {
-  /* font-family: "Quicksand", sans-serif; */
   color: #5a4a32;
   margin-bottom: 1rem;
   border-bottom: 2px solid #a67c52;
   padding-bottom: 0.5rem;
 }
 
-/* Styling untuk label dan input */
 .input > label {
   display: block;
   margin-top: 1rem;
@@ -105,7 +101,6 @@ section.active > h2 {
   width: 100%;
 }
 
-/* Styling khusus untuk checkbox */
 .input_inline {
   display: flex;
   align-items: center;
@@ -119,9 +114,8 @@ section.active > h2 {
   margin-bottom: 0;
 }
 
-/* Styling untuk button */
 button.bookSubmit {
-  background-color: #5a4a32; /* Warna tombol */
+  background-color: #5a4a32;
   color: white;
   padding: 0.5rem 1rem;
   border: none;
@@ -136,35 +130,27 @@ button.bookSubmit:hover {
   background-color: #3d2e20;
 }
 
-/* Style Bookshelf */
 .bookshelf {
   display: flex;
   justify-content: space-between;
 }
 
 .bookshelf > div {
-  flex-basis: 48%; /* Memberikan sedikit ruang di antara kolom */
+  flex-basis: 48%;
 }
 
 .books-list {
-  /* border: 1px solid #ddd; */
   padding: 0 0 1rem 0;
-  /* Atur tinggi atau buat dinamis sesuai isi */
-  /* height: 300px;  */
-  /* Tambahkan scrollbar jika konten melebihi tinggi */
-  /* overflow-y: auto;  */
   margin-bottom: 1rem;
 }
 
 section.active > .bookshelf > .unread > h2, section.active > .bookshelf > .read > h2 {
-  /* font-family: "Quicksand", sans-serif; */
   color: #5a4a32;
   margin-bottom: 1rem;
   border-bottom: 2px solid #a67c52;
   padding-bottom: 0.5rem;
 }
 
-/* Style untuk list book  */
 .book-item {
   display: flex;
   margin-bottom: 1rem;
@@ -172,8 +158,6 @@ section.active > .bookshelf > .unread > h2, section.active > .bookshelf > .read 
   background: #f8f1e9;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-  /* position: relative; */
 }
 
 .book-info > h3.book-title {
@@ -194,12 +178,11 @@ section.active > .bookshelf > .unread > h2, section.active > .bookshelf > .read 
   font-weight: bold;
 }
 
-/* Styles untuk button list buku-buku */
 .book-actions {
   display: flex;
-  justify-content: flex-start; /* Mengatur tombol agar berbaris di awal */
-  gap: 10px; /* Memberikan jarak antara tombol */
-  margin-top: 10px; /* Jarak dari teks tahun */
+  justify-content: flex-start; 
+  gap: 10px; 
+  margin-top: 10px;
 }
 
 .button {
@@ -212,12 +195,12 @@ section.active > .bookshelf > .unread > h2, section.active > .bookshelf > .read 
 }
 
 .read-button {
-  background-color: #38761d; /* Warna untuk tindakan positif */
+  background-color: #38761d; 
   color: white;
 }
 
 .delete-button {
-  background-color: #cc0000; /* Warna untuk tindakan penghapusan */
+  background-color: #cc0000;
   color: white;
 }
 
@@ -248,14 +231,13 @@ section.active > .bookshelf > .unread > h2, section.active > .bookshelf > .read 
   font-size: 17px;
 }
 
-/* Tampilkan toast ketika ditambahkan kelas "show" */
+
 .toast.show {
   visibility: visible;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
-/* Animasi fade in dan fade out */
 @-webkit-keyframes fadein {
   from {bottom: 0; opacity: 0;}
   to {bottom: 30px; opacity: 1;}
@@ -278,9 +260,9 @@ section.active > .bookshelf > .unread > h2, section.active > .bookshelf > .read 
 
 
 @media (max-width: 768px) {
-  /* Tampilkan ikon menu dan sembunyikan navigasi */
+
   .head-icon {
-    position: static; /* atau sesuaikan posisinya jika perlu */
+    position: static;
   }
 
   .menu-icon {
@@ -292,37 +274,32 @@ section.active > .bookshelf > .unread > h2, section.active > .bookshelf > .read 
     flex-direction: column;
     width: 100%;
     position: absolute;
-    top: 70px; /* Tinggi header */
+    top: 70px;
     left: 0;
     background-color: rgb(45, 149, 150);
   }
 
-  /* Style untuk item navigasi dalam mode dropdown */
   .header-content > h3 {
     padding: 10px;
   }
 
-  /* Ketika menu aktif/tampil */
   .header-content.active {
     display: flex;
 
-    /* background-color: rgba(236, 244, 214, 0.9); */
     background-color: #f8f1e9;
 
     color: #5a4a32;
     border: 1px solid;
   }
 
-  /* Style readed books */
   .bookshelf {
     flex-direction: column;
   }
 
   .bookshelf > div {
-    /* Sesuaikan lebar penuh untuk setiap div anak */
     flex-basis: 100%;
-    width: 100%; /* Mengisi lebar penuh kontainer */
-    margin-bottom: 1rem; /* Menambahkan sedikit ruang antara dua div */
+    width: 100%; 
+    margin-bottom: 1rem;
   }
 
   #inputBookIsComplete {
