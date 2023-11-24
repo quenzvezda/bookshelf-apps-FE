@@ -73,14 +73,12 @@ function makeBook(bookObject) {
     toggleReadButton.innerText = "Belum Selesai Dibaca";
     toggleReadButton.addEventListener("click", function () {
       // Tambahkan logika untuk mengganti status buku di sini
-      console.log("button uncompleted");
       changeBookStatus(bookObject.id);
     });
   } else {
     toggleReadButton.innerText = "Selesai Dibaca";
     toggleReadButton.addEventListener("click", function () {
       // Tambahkan logika untuk mengganti status buku di sini
-      console.log("button completed");
       changeBookStatus(bookObject.id);
     });
   }
@@ -114,7 +112,6 @@ function makeBook(bookObject) {
 function changeBookStatus(bookId) {
   books = getBookList();
   const bookIndex = findBookIndex(bookId);
-  console.log(books[bookIndex]);
 
   if (books[bookIndex] === -1) return;
 
@@ -124,12 +121,11 @@ function changeBookStatus(bookId) {
     books[bookIndex].isComplete = true;
   }
 
-  console.log(books[bookIndex]);
-
   const parsed = JSON.stringify(books);
   localStorage.setItem(bookshelfKey, parsed);
 
   displayEventCheck();
+  showToast("Status Buku Berhasil Dirubah!");
 }
 
 function displayEventCheck() {
@@ -140,10 +136,6 @@ function displayEventCheck() {
   // Mengecek apakah masing-masing elemen memiliki kelas 'active'
   var isSearchBooksActive = searchBooksSection.classList.contains("active");
   var isAllBooksActive = allBooksSection.classList.contains("active");
-
-  // Menampilkan hasil pengecekan ke console
-  console.log('Apakah section "searchBooks" aktif:', isSearchBooksActive);
-  console.log('Apakah section "allBooks" aktif:', isAllBooksActive);
 
   // Anda juga bisa melakukan tindakan berdasarkan hasil pengecekan
   if (isSearchBooksActive) {
@@ -168,6 +160,7 @@ function deleteBook(bookId) {
   const parsed = JSON.stringify(books);
   localStorage.setItem(bookshelfKey, parsed);
   displayEventCheck();
+  showToast("Buku Berhasil Dihapus!");
 }
 
 function findBookIndex(bookId) {
@@ -177,16 +170,6 @@ function findBookIndex(bookId) {
       return index;
     }
   }
-}
-
-function findBook(bookId) {
-  books = getBookList();
-  for (const bookItem of books) {
-    if (bookItem.id == bookId) {
-      return bookItem;
-    }
-  }
-  return null;
 }
 
 function putBookList(data) {
@@ -199,6 +182,7 @@ function putBookList(data) {
     bookData.unshift(data);
 
     localStorage.setItem(bookshelfKey, JSON.stringify(bookData));
+    showToast("Data Buku Berhasil Dimasukkan!");
   }
 }
 
@@ -233,7 +217,7 @@ function showSection(sectionId) {
   if (sectionToShow) {
     sectionToShow.classList.add("active");
   }
-  document.dispatchEvent(new Event(RENDER_EVENT));
+  displayEventCheck();
 }
 
 // Event listener untuk setiap navigasi di header
@@ -284,7 +268,6 @@ document.addEventListener("render-result", () => {
 });
 
 function searchBooks() {
-  console.log("Search");
   books = getBookList();
 
   const query = document.getElementById("searchBookTitle").value.toLowerCase();
@@ -293,6 +276,16 @@ function searchBooks() {
     book.bookTitle.toLowerCase().includes(query)
   );
 
-  console.log(result);
   return result;
+}
+
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  const toastMessage = document.getElementById("toastMessage");
+  toastMessage.textContent = message;
+
+  toast.classList.add("show");
+  setTimeout(function () {
+    toast.classList.remove("show");
+  }, 3000); // Toast akan hilang setelah 3 detik
 }
