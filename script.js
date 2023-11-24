@@ -171,7 +171,7 @@ submitAction.addEventListener("submit", function (event) {
   const inputId = generateUniqueID();
   const inputBook = document.getElementById("inputBookTitle").value;
   const inputAuthor = document.getElementById("inputBookAuthor").value;
-  const inputYear = document.getElementById("inputBookYear").value;
+  const inputYear = Number(document.getElementById("inputBookYear").value);
   const inputIsCompleted = document.getElementById(
     "inputBookIsComplete"
   ).checked;
