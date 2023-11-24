@@ -211,18 +211,23 @@ function showSection(sectionId) {
 }
 
 // Event listener untuk setiap navigasi di header
-document
-  .getElementById("navInputBook")
-  .addEventListener("click", () => showSection("inputBook"));
-document
-  .getElementById("navSearchBooks")
-  .addEventListener("click", () => showSection("searchBooks"));
-document
-  .getElementById("navAllBooks")
-  .addEventListener("click", () => showSection("allBooks"));
+document.getElementById("navInputBook").addEventListener("click", () => {
+  showSection("inputBook");
+  var headerContent = document.querySelector(".header-content");
+  headerContent.classList.remove("active");
+});
+document.getElementById("navSearchBooks").addEventListener("click", () => {
+  showSection("searchBooks");
+  var headerContent = document.querySelector(".header-content");
+  headerContent.classList.remove("active");
+});
+document.getElementById("navAllBooks").addEventListener("click", () => {
+  showSection("allBooks");
+  var headerContent = document.querySelector(".header-content");
+  headerContent.classList.remove("active");
+});
 
-// Fungsi toggleMenu() untuk dropdown pada mobile
-function toggleMenu() {
+document.getElementById("menu-icon").addEventListener("click", () => {
   var headerContent = document.querySelector(".header-content");
   headerContent.classList.toggle("active");
-}
+});

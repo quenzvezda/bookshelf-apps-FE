@@ -173,7 +173,7 @@ section.active > .bookshelf > .unread > h2, section.active > .bookshelf > .read 
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
-  position: relative;
+  /* position: relative; */
 }
 
 .book-info > h3.book-title {
@@ -225,18 +225,6 @@ section.active > .bookshelf > .unread > h2, section.active > .bookshelf > .read 
   opacity: 0.8;
 }
 
-/* section.active > h2 {
-  text-align: center;
-  padding-bottom: 10px;
-}
-
-section.active > form > .input > input {
-  display: block;
-  width: 100%;
-  padding: 8px;
-  border-radius: 5px;
-} */
-
 @media (max-width: 768px) {
   /* Tampilkan ikon menu dan sembunyikan navigasi */
   .head-icon {
@@ -285,4 +273,7 @@ section.active > form > .input > input {
     margin-bottom: 1rem; /* Menambahkan sedikit ruang antara dua div */
   }
 
+  #inputBookIsComplete {
+    margin-left: 10px;
+  }
 }
