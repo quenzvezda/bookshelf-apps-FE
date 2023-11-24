@@ -166,7 +166,8 @@ function putBookList(data) {
   }
 }
 
-submitAction.addEventListener("submit", function () {
+submitAction.addEventListener("submit", function (event) {
+  event.preventDefault();
   const inputId = generateUniqueID();
   const inputBook = document.getElementById("inputBookTitle").value;
   const inputAuthor = document.getElementById("inputBookAuthor").value;
@@ -181,6 +182,8 @@ submitAction.addEventListener("submit", function () {
     year: inputYear,
     isComplete: inputIsCompleted,
   };
+
+  submitAction.reset();
 
   putBookList(newBookData);
 });
@@ -265,3 +268,7 @@ function showToast(message) {
     toast.classList.remove("show");
   }, 3000);
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  alert("Loading");
+});
