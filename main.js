@@ -231,3 +231,13 @@ document.getElementById("menu-icon").addEventListener("click", () => {
   var headerContent = document.querySelector(".header-content");
   headerContent.classList.toggle("active");
 });
+
+window.addEventListener("resize", () => {
+  var headerContent = document.querySelector(".header-content");
+  headerContent.classList.remove("active");
+});
+
+window.addEventListener("blur", () => {
+  var headerContent = document.querySelector(".header-content");
+  headerContent.classList.remove("active");
+});
