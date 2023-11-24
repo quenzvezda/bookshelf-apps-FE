@@ -31,15 +31,15 @@
         <form id="book-form">
           <div class="input">
             <label for="inputBookTitle">Judul</label>
-            <input id="inputBookTitle" type="text" required />
+            <input id="inputBookTitle" type="text" required placeholder="The Sword and the Dagger" />
           </div>
           <div class="input">
             <label for="inputBookAuthor">Penulis</label>
-            <input id="inputBookAuthor" type="text" required />
+            <input id="inputBookAuthor" type="text" required placeholder="Robert Cochran" />
           </div>
           <div class="input">
             <label for="inputBookYear">Tahun</label>
-            <input id="inputBookYear" type="number" required />
+            <input id="inputBookYear" type="number" required min="1900" max="2023" placeholder="2020"/>
           </div>
           <div class="input_inline">
             <label for="inputBookIsComplete">Selesai dibaca</label>
@@ -47,6 +47,7 @@
           </div>
           <button class="bookSubmit" id="bookSubmit" type="submit">Submit</button>
         </form>
+        
       </section>
       <section id="searchBooks" class="searchBooks">
         <h2>Cari Buku</h2>
