@@ -75,7 +75,7 @@ section.active {
   border: 1px solid rgb(38, 80, 115);
   border-radius: 5px;
   background-color: white;
-  color: rgb(38, 80, 115);
+  color: #5a4a32;
 }
 
 /* Styling untuk judul section */
@@ -120,7 +120,7 @@ section.active > h2 {
 }
 
 /* Styling untuk button */
-button#bookSubmit {
+button.bookSubmit {
   background-color: #5a4a32; /* Warna tombol */
   color: white;
   padding: 0.5rem 1rem;
@@ -132,7 +132,7 @@ button#bookSubmit {
   transition: background-color 0.3s;
 }
 
-button#bookSubmit:hover {
+button.bookSubmit:hover {
   background-color: #3d2e20;
 }
 
@@ -225,6 +225,13 @@ section.active > .bookshelf > .unread > h2, section.active > .bookshelf > .read 
   opacity: 0.8;
 }
 
+#search-form {
+  color: #5a4a32;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #a67c52;
+  padding-bottom: 0.5rem;
+}
+
 @media (max-width: 768px) {
   /* Tampilkan ikon menu dan sembunyikan navigasi */
   .head-icon {
@@ -257,7 +264,7 @@ section.active > .bookshelf > .unread > h2, section.active > .bookshelf > .read 
     /* background-color: rgba(236, 244, 214, 0.9); */
     background-color: #f8f1e9;
 
-    color: rgb(38, 80, 115);
+    color: #5a4a32;
     border: 1px solid;
   }
 

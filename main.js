@@ -128,7 +128,33 @@ function changeBookStatus(bookId) {
 
   const parsed = JSON.stringify(books);
   localStorage.setItem(bookshelfKey, parsed);
-  document.dispatchEvent(new Event(RENDER_EVENT));
+
+  displayEventCheck();
+}
+
+function displayEventCheck() {
+  // Mendapatkan elemen section 'searchBooks' dan 'allBooks'
+  var searchBooksSection = document.getElementById("searchBooks");
+  var allBooksSection = document.getElementById("allBooks");
+
+  // Mengecek apakah masing-masing elemen memiliki kelas 'active'
+  var isSearchBooksActive = searchBooksSection.classList.contains("active");
+  var isAllBooksActive = allBooksSection.classList.contains("active");
+
+  // Menampilkan hasil pengecekan ke console
+  console.log('Apakah section "searchBooks" aktif:', isSearchBooksActive);
+  console.log('Apakah section "allBooks" aktif:', isAllBooksActive);
+
+  // Anda juga bisa melakukan tindakan berdasarkan hasil pengecekan
+  if (isSearchBooksActive) {
+    // Lakukan sesuatu jika 'searchBooks' aktif
+    document.dispatchEvent(new Event("render-result"));
+  }
+
+  if (isAllBooksActive) {
+    // Lakukan sesuatu jika 'allBooks' aktif
+    document.dispatchEvent(new Event(RENDER_EVENT));
+  }
 }
 
 function deleteBook(bookId) {
@@ -141,7 +167,7 @@ function deleteBook(bookId) {
 
   const parsed = JSON.stringify(books);
   localStorage.setItem(bookshelfKey, parsed);
-  document.dispatchEvent(new Event(RENDER_EVENT));
+  displayEventCheck();
 }
 
 function findBookIndex(bookId) {
@@ -241,3 +267,32 @@ window.addEventListener("blur", () => {
   var headerContent = document.querySelector(".header-content");
   headerContent.classList.remove("active");
 });
+
+document.getElementById("bookSearch").addEventListener("click", () => {
+  document.dispatchEvent(new Event("render-result"));
+});
+
+document.addEventListener("render-result", () => {
+  books = searchBooks();
+  const searchResult = document.getElementById("search-result");
+  searchResult.innerHTML = "";
+
+  for (const bookItem of books) {
+    const bookElement = makeBook(bookItem);
+    searchResult.append(bookElement);
+  }
+});
+
+function searchBooks() {
+  console.log("Search");
+  books = getBookList();
+
+  const query = document.getElementById("searchBookTitle").value.toLowerCase();
+
+  const result = books.filter((book) =>
+    book.bookTitle.toLowerCase().includes(query)
+  );
+
+  console.log(result);
+  return result;
+}

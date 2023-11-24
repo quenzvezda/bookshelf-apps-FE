@@ -45,18 +45,21 @@
             <label for="inputBookIsComplete">Selesai dibaca</label>
             <input id="inputBookIsComplete" type="checkbox" />
           </div>
-          <button id="bookSubmit" type="submit">Submit</button>
+          <button class="bookSubmit" id="bookSubmit" type="submit">Submit</button>
         </form>
       </section>
       <section id="searchBooks" class="searchBooks">
         <h2>Cari Buku</h2>
-        <form>
+        <div id="search-form">
           <div class="input">
             <label for="inputBookTitle">Judul</label>
-            <input id="inputBookTitle" type="text" required />
+            <input id="searchBookTitle" type="text" required />
           </div>
-          <button id="bookSubmit" type="submit">Submit</button>
-        </form>
+          <button class="bookSubmit" id="bookSearch">Cari</button>
+        </div>
+        <div class="book-list" id="search-result">
+          
+        </div>
       </section>
       <section id="allBooks" class="allBooks">
         <div class="bookshelf">
