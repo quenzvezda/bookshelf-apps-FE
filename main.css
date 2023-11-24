@@ -136,6 +136,95 @@ button#bookSubmit:hover {
   background-color: #3d2e20;
 }
 
+/* Style Bookshelf */
+.bookshelf {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bookshelf > div {
+  flex-basis: 48%; /* Memberikan sedikit ruang di antara kolom */
+}
+
+.books-list {
+  /* border: 1px solid #ddd; */
+  padding: 0 0 1rem 0;
+  /* Atur tinggi atau buat dinamis sesuai isi */
+  /* height: 300px;  */
+  /* Tambahkan scrollbar jika konten melebihi tinggi */
+  /* overflow-y: auto;  */
+  margin-bottom: 1rem;
+}
+
+section.active > .bookshelf > .unread > h2, section.active > .bookshelf > .read > h2 {
+  /* font-family: "Quicksand", sans-serif; */
+  color: #5a4a32;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #a67c52;
+  padding-bottom: 0.5rem;
+}
+
+/* Style untuk list book  */
+.book-item {
+  display: flex;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background: #f8f1e9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  position: relative;
+}
+
+.book-info > h3.book-title {
+  font-size: 1rem;
+  color: #5a4a32;
+}
+
+.book-info > p {
+  font-size: 0.8rem;
+  color: #5a4a32;
+}
+
+.book-info > p.book-author {
+  font-style: italic;
+}
+
+.book-info > p.book-year {
+  font-weight: bold;
+}
+
+/* Styles untuk button list buku-buku */
+.book-actions {
+  display: flex;
+  justify-content: flex-start; /* Mengatur tombol agar berbaris di awal */
+  gap: 10px; /* Memberikan jarak antara tombol */
+  margin-top: 10px; /* Jarak dari teks tahun */
+}
+
+.button {
+  padding: 5px 15px;
+  font-size: 0.8rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.read-button {
+  background-color: #38761d; /* Warna untuk tindakan positif */
+  color: white;
+}
+
+.delete-button {
+  background-color: #cc0000; /* Warna untuk tindakan penghapusan */
+  color: white;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
 /* section.active > h2 {
   text-align: center;
   padding-bottom: 10px;
@@ -183,4 +272,17 @@ section.active > form > .input > input {
     color: rgb(38, 80, 115);
     border: 1px solid;
   }
+
+  /* Style readed books */
+  .bookshelf {
+    flex-direction: column;
+  }
+
+  .bookshelf > div {
+    /* Sesuaikan lebar penuh untuk setiap div anak */
+    flex-basis: 100%;
+    width: 100%; /* Mengisi lebar penuh kontainer */
+    margin-bottom: 1rem; /* Menambahkan sedikit ruang antara dua div */
+  }
+
 }

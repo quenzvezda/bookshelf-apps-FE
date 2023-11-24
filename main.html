@@ -28,7 +28,7 @@
     <main>
       <section id="inputBook" class="inputBook active">
         <h2>Input Buku Baru</h2>
-        <form>
+        <form id="book-form">
           <div class="input">
             <label for="inputBookTitle">Judul</label>
             <input id="inputBookTitle" type="text" required />
@@ -59,8 +59,20 @@
         </form>
       </section>
       <section id="allBooks" class="allBooks">
-        <h2>Belum dibaca</h2>
-        <h2>Sudah dibaca</h2>
+        <div class="bookshelf">
+          <div class="unread">
+            <h2>Belum dibaca</h2>
+            <div class="books-list" id="booksUnread">
+              <!-- Isi buku yang belum dibaca -->
+            </div>
+          </div>
+          <div class="read">
+            <h2>Sudah dibaca</h2>
+            <div class="books-list" id="booksRead">
+              <!-- Isi buku yang sudah dibaca -->
+            </div>
+          </div>
+        </div>
       </section>
     </main>
 
