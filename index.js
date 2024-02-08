@@ -1,10 +1,13 @@
-if (!localStorage.getItem('BOOKSHELF_KEY')) {
-    localStorage.setItem('BOOKSHELF_KEY', JSON.stringify([]));
+const bookshelfKey = "BOOKSHELF_KEY";
+
+if (!localStorage.getItem(bookshelfKey)) {
+    localStorage.setItem(bookshelfKey, JSON.stringify([]));
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const submitForm = document.getElementById('formAddBook');
+    updateBookShelf();
 
+    const submitForm = document.getElementById('formAddBook');
     submitForm.addEventListener('submit', function(event) {
         event.preventDefault();
         addBook();
@@ -26,9 +29,9 @@ function addBook() {
     };
 
     // Mengambil array buku dari localStorage, menambahkan buku baru, dan menyimpannya kembali
-    const books = JSON.parse(localStorage.getItem('BOOKSHELF_KEY'));
+    const books = JSON.parse(localStorage.getItem(bookshelfKey));
     books.push(book);
-    localStorage.setItem('BOOKSHELF_KEY', JSON.stringify(books));
+    localStorage.setItem(bookshelfKey, JSON.stringify(books));
 
     // Mengosongkan form dan memperbarui tampilan
     document.getElementById('formAddBook').reset();
@@ -39,4 +42,71 @@ function updateBookShelf() {
     // Implementasikan fungsi untuk memperbarui rak buku di sini
     // Ini akan melibatkan mengambil data buku dari localStorage, dan menggunakannya untuk
     // menampilkan buku-buku tersebut di rak buku yang sesuai ('Belum Selesai Dibaca' atau 'Selesai Dibaca')
+
+    const incompleteBookshelfList = document.getElementById('incompleteBookshelfList');
+    const completeBookshelfList = document.getElementById('completeBookshelfList');
+
+    // Membersihkan konten rak buku sebelumnya
+    incompleteBookshelfList.innerHTML = '<h3>Belum Selesai Dibaca</h3>';
+    completeBookshelfList.innerHTML = '<h3>Selesai Dibaca</h3>';
+
+    // Mengambil array buku dari localStorage
+    const books = JSON.parse(localStorage.getItem(bookshelfKey)) || [];
+
+    books.forEach(book => {
+        const bookElement = document.createElement('div');
+        bookElement.classList.add('book-item');
+        bookElement.innerHTML = `
+            <h4>Judul Buku: ${book.title}</h4>
+            <p>Penulis: ${book.author}</p>
+            <p>Tahun Terbit: ${book.year}</p>
+            <button class="complete-button">${book.isComplete ? 'Belum Selesai Baca' : 'Selesai Baca'}</button>
+            <button class="delete-button">Hapus Buku</button>
+            <button class="edit-button">Edit Buku</button>
+        `;
+
+        // Menambahkan event listener pada tombol 'Selesai Baca'/'Belum Selesai Baca'
+        bookElement.querySelector('.complete-button').addEventListener('click', function() {
+            toggleBookStatus(book.id);
+        });
+
+        // Menambahkan event listener pada tombol 'Hapus Buku'
+        bookElement.querySelector('.delete-button').addEventListener('click', function() {
+            deleteBook(book.id);
+        });
+
+        // Menambahkan event listener pada tombol 'Edit Buku' (implementasi fungsi editBook belum disertakan)
+        bookElement.querySelector('.edit-button').addEventListener('click', function() {
+            editBook(book.id);
+        });
+
+        if (book.isComplete) {
+            completeBookshelfList.appendChild(bookElement);
+        } else {
+            incompleteBookshelfList.appendChild(bookElement);
+        }
+    });
+}
+
+function toggleBookStatus(bookId) {
+    const books = JSON.parse(localStorage.getItem(bookshelfKey)) || [];
+    const bookIndex = books.findIndex(book => book.id === bookId);
+
+    if (bookIndex !== -1) {
+        books[bookIndex].isComplete = !books[bookIndex].isComplete;
+        localStorage.setItem(bookshelfKey, JSON.stringify(books));
+        updateBookShelf();
+    }
+}
+
+function deleteBook(bookId) {
+    let books = JSON.parse(localStorage.getItem(bookshelfKey)) || [];
+    books = books.filter(book => book.id !== bookId);
+
+    localStorage.setItem(bookshelfKey, JSON.stringify(books));
+    updateBookShelf();
+}
+
+function editBook(bookId) {
+    // Implementasi fungsi untuk mengedit detail buku
 }
