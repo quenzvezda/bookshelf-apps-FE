@@ -29,6 +29,11 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('cancelButton').style.display = 'none'; // Sembunyikan tombol Batal setelah diklik
         document.getElementById('resetButton').style.display = 'block'; // Tampilkan tombol Reset
     });
+
+    // On going
+    document.getElementById('searchBookTitle').addEventListener('keyup', function() {
+        updateBookShelf(this.value.trim().toLowerCase());
+    });
 });
 
 function addBook() {
@@ -53,9 +58,10 @@ function addBook() {
     // Mengosongkan form dan memperbarui tampilan
     document.getElementById('formAddBook').reset();
     updateBookShelf();
+    showToast("Buku berhasil ditambah!");
 }
 
-function updateBookShelf() {
+function updateBookShelf(searchQuery = '') {
     // Implementasikan fungsi untuk memperbarui rak buku di sini
     // Ini akan melibatkan mengambil data buku dari localStorage, dan menggunakannya untuk
     // menampilkan buku-buku tersebut di rak buku yang sesuai ('Belum Selesai Dibaca' atau 'Selesai Dibaca')
@@ -70,7 +76,9 @@ function updateBookShelf() {
     // Mengambil array buku dari localStorage
     const books = JSON.parse(localStorage.getItem(bookshelfKey)) || [];
 
-    books.forEach(book => {
+    const filteredBooks = books.filter(book => book.title.toLowerCase().includes(searchQuery));
+
+    filteredBooks.forEach(book => {
         const bookElement = document.createElement('div');
         bookElement.classList.add('book-item');
         bookElement.innerHTML = `
@@ -113,6 +121,7 @@ function toggleBookStatus(bookId) {
         books[bookIndex].isComplete = !books[bookIndex].isComplete;
         localStorage.setItem(bookshelfKey, JSON.stringify(books));
         updateBookShelf();
+        showToast("Status buku berhasil dirubah!")
     }
 }
 
@@ -159,6 +168,7 @@ function updateBook(bookId) {
         localStorage.setItem('BOOKSHELF_KEY', JSON.stringify(books));
         resetForm();
         updateBookShelf();
+        showToast("Buku berhasil diedit!");
     }
 }
 
