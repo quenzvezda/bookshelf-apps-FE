@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
+
+body {
+    font-family: 'Protest Riot', sans-serif;
+    background-color: #FEFBF6; /* Background warna terang */
+    color: #B67352; /* Warna font utama */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #8CB9BD; /* Warna header */
+    color: #FEFBF6; /* Warna teks pada header */
+    padding: 10px 20px;
+}
+
+header input[type="text"] {
+    padding: 8px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+h1, h2, h3 {
+    color: #B67352;
+}
+
+#book-input, #book-shelves {
+    background-color: #ECB159; /* Warna background untuk form input dan rak buku */
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+input[type="text"], input[type="number"] {
+    padding: 10px;
+    margin: 5px 0;
+    width: calc(100% - 22px); /* Adjust width to account for padding and border */
+    box-sizing: border-box; /* Ensure padding does not affect total width */
+    border-radius: 5px;
+    border: 1px solid #B67352; /* Border color */
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+button {
+    background-color: #8CB9BD; /* Warna tombol */
+    color: #FEFBF6; /* Warna teks tombol */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    font-family: 'Protest Riot', sans-serif;
+}
+
+button:hover {
+    background-color: #B67352; /* Warna tombol saat di-hover */
+}
+
+/*Ini Footer*/
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #8CB9BD; /* Warna latar footer sesuai dengan palet */
+    color: #FEFBF6; /* Warna teks */
+    text-align: center; /* Memusatkan teks */
+    border-top: 5px solid #ECB159; /* Garis batas atas dengan warna kontras */
+}
+
+footer p {
+    margin: 5px 0; /* Memberi jarak antar paragraf */
+}
