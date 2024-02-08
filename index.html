@@ -27,7 +27,11 @@
                     <input type="checkbox" id="isComplete"> Selesai dibaca
                 </label>
                 <br>
-                <button type="submit" id="formButton">Tambah Buku</button>
+                <div class="form-buttons">
+                    <button type="submit" id="formButton">Tambah Buku</button>
+                    <button type="button" id="resetButton">Reset</button>
+                    <button type="button" id="cancelButton" style="display:none;">Batal</button>
+                </div>
             </form>
         </section>
 
@@ -73,6 +77,11 @@
     <p>Bookshelf Apps &copy; 2024 - Developed by Rama Almer Felix</p>
     <p>Manage your favorites books</p>
 </footer>
+
+<div id="toast" class="toast">
+    <p id="toastMessage"></p>
+</div>
+
 <script src="index.js"></script>
 </body>
 </html>

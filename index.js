@@ -18,6 +18,17 @@ document.addEventListener('DOMContentLoaded', function() {
             addBook(); // Fungsi yang sudah ada untuk menambahkan buku
         }
     });
+
+    document.getElementById('resetButton').addEventListener('click', function() {
+        resetForm();
+    });
+
+    // Listener untuk tombol Batal
+    document.getElementById('cancelButton').addEventListener('click', function() {
+        resetForm();
+        document.getElementById('cancelButton').style.display = 'none'; // Sembunyikan tombol Batal setelah diklik
+        document.getElementById('resetButton').style.display = 'block'; // Tampilkan tombol Reset
+    });
 });
 
 function addBook() {
@@ -111,6 +122,7 @@ function deleteBook(bookId) {
 
     localStorage.setItem(bookshelfKey, JSON.stringify(books));
     updateBookShelf();
+    showToast("Buku berhasil dihapus!")
 }
 
 function editBook(bookId) {
@@ -125,6 +137,9 @@ function editBook(bookId) {
         document.getElementById('isComplete').checked = book.isComplete;
         document.getElementById('formButton').innerText = 'Edit Buku';
         document.querySelector('#book-input h2').innerText = 'Edit Buku';
+
+        document.getElementById('cancelButton').style.display = 'block';
+        document.getElementById('resetButton').style.display = 'none';
     }
 }
 
@@ -155,4 +170,18 @@ function resetForm() {
     document.getElementById('isComplete').checked = false;
     document.getElementById('formButton').innerText = 'Tambah Buku';
     document.querySelector('#book-input h2').innerText = 'Tambah Buku';
+
+    document.getElementById('cancelButton').style.display = 'none';
+    document.getElementById('resetButton').style.display = 'block';
+}
+
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    const toastMessage = document.getElementById("toastMessage");
+    toastMessage.textContent = message;
+
+    toast.classList.add("show");
+    setTimeout(function () {
+        toast.classList.remove("show");
+    }, 3000);
 }
