@@ -214,3 +214,20 @@ footer p {
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
 }
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 20px; /* Ukuran font yang lebih kecil untuk layar mobile */
+        margin: 0 10px; /* Opsi untuk menyesuaikan margin jika diperlukan */
+    }
+
+    #incompleteBookshelfList, #completeBookshelfList {
+        min-width: 0; /* Menghilangkan batasan lebar minimal */
+        padding: 10px; /* Mengurangi padding untuk menyimpan ruang */
+    }
+
+    #book-shelves {
+        flex-direction: column; /* Opsional, bergantung pada desain Anda */
+        padding: 10px; /* Menyesuaikan padding jika diperlukan */
+    }
+}
