@@ -173,19 +173,19 @@ footer p {
 /*Ini Toast*/
 .toast {
     visibility: hidden;
-    min-width: 250px;
+    min-width: 150px;
     margin-left: -125px;
     background-color: #fde2b3;
     color: #6a6969;
     text-align: center;
     border-radius: 4px;
-    border: 1px solid #a67c52;
+    border: 5px solid #a67c52;
     padding: 16px;
     position: fixed;
     z-index: 1;
     left: 50%;
     bottom: 30px;
-    font-size: 17px;
+    font-size: 24px;
 }
 
 
