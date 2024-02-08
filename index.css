@@ -12,14 +12,30 @@ header {
     background-color: #8CB9BD; /* Warna header */
     color: #FEFBF6; /* Warna teks pada header */
     padding: 10px 20px;
+    display: flex; /* Mengaktifkan flexbox */
+    align-items: center; /* Menyelaraskan item secara vertikal */
+    justify-content: space-between; /* Mendistribusikan ruang antar elemen */
+}
+
+header img {
+    height: 50px; /* Mengatur tinggi gambar, sesuaikan sesuai kebutuhan */
+    width: auto; /* Menjaga rasio aspek gambar */
+}
+
+header h1 {
+    margin: 0 20px; /* Memberikan margin di sisi kiri dan kanan */
+    flex-grow: 1; /* Memungkinkan judul tumbuh dan mengisi ruang tersedia */
 }
 
 header input[type="text"] {
     padding: 8px;
-    margin-top: 10px;
+    margin: 0; /* Menghilangkan margin atas */
     border: none;
     border-radius: 5px;
+    width: 20%; /* Mengatur lebar input */
+    min-width: 150px; /* Menetapkan lebar minimal agar tidak terlalu kecil */
 }
+
 
 h1, h2, h3 {
     color: #B67352;
