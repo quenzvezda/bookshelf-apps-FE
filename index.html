@@ -15,35 +15,71 @@
     <h1>Bookshelf Apps</h1>
     <input type="text" id="searchBookTitle" placeholder="Cari buku berdasarkan judul...">
 </header>
-<main>
-    <section id="book-input">
-        <h2>Tambah Buku</h2>
-        <form id="formAddBook">
-            <input type="text" id="title" placeholder="Judul Buku" required>
-            <input type="text" id="author" placeholder="Penulis Buku" required>
-            <input type="number" id="year" placeholder="Tahun Terbit" required>
-            <label>
-                <input type="checkbox" id="isComplete"> Selesai dibaca
-            </label>
-            <button type="submit">Tambah Buku</button>
-        </form>
-    </section>
+    <main>
+        <section id="book-input">
+            <h2>Tambah Buku</h2>
+            <form id="formAddBook">
+                <input type="text" id="title" placeholder="Judul Buku" required>
+                <input type="text" id="author" placeholder="Penulis Buku" required>
+                <input type="number" id="year" placeholder="Tahun Terbit" required>
+                <label>
+                    <input type="checkbox" id="isComplete"> Selesai dibaca
+                </label>
+                <br>
+                <button type="submit">Tambah Buku</button>
+            </form>
+        </section>
 
-    <section id="book-shelves">
-        <h2>Rak Buku</h2>
-        <div id="incompleteBookshelfList">
-            <h3>Belum Selesai Dibaca</h3>
-            <!-- Buku-buku belum selesai dibaca akan ditampilkan di sini -->
-        </div>
-        <div id="completeBookshelfList">
-            <h3>Selesai Dibaca</h3>
-            <!-- Buku-buku selesai dibaca akan ditampilkan di sini -->
-        </div>
-    </section>
-</main>
+        <section id="book-shelves">
+<!--            <h2>Rak Buku</h2>-->
+
+            <div id="incompleteBookshelfList">
+                <h3>Belum Selesai Dibaca</h3>
+                <div class="book-item">
+                    <h4>Judul Buku: The Great Gatsby</h4>
+                    <p>Penulis: F. Scott Fitzgerald</p>
+                    <p>Tahun Terbit: 1925</p>
+                    <button>Selesai Baca</button>
+                    <button class="delete-button">Hapus Buku</button>
+                    <button class="edit-button">Edit Buku</button>
+                </div>
+
+                <div class="book-item">
+                    <h4>Judul Buku: The Great Gatsby</h4>
+                    <p>Penulis: F. Scott Fitzgerald</p>
+                    <p>Tahun Terbit: 1925</p>
+                    <button>Selesai Baca</button>
+                    <button class="delete-button">Hapus Buku</button>
+                    <button class="edit-button">Edit Buku</button>
+                </div>
+
+                <div class="book-item">
+                    <h4>Judul Buku: The Great Gatsby</h4>
+                    <p>Penulis: F. Scott Fitzgerald</p>
+                    <p>Tahun Terbit: 1925</p>
+                    <button>Selesai Baca</button>
+                    <button class="delete-button">Hapus Buku</button>
+                    <button class="edit-button">Edit Buku</button>
+                </div>
+            </div>
+
+            <div id="completeBookshelfList">
+                <h3>Selesai Dibaca</h3>
+                <div class="book-item">
+                    <h4>Judul Buku: To Kill a Mockingbird</h4>
+                    <p>Penulis: Harper Lee</p>
+                    <p>Tahun Terbit: 1960</p>
+                    <button>Belum Selesai Baca</button>
+                    <button class="delete-button">Hapus Buku</button>
+                    <button class="edit-button">Edit Buku</button>
+                </div>
+            </div>
+
+        </section>
+    </main>
 <footer>
     <p>Bookshelf Apps &copy; 2024 - Developed by Rama Almer Felix</p>
-    <p>Enhancing Your Reading Experience</p>
+    <p>Manage your favorites books</p>
 </footer>
 <script>
     // Tambahkan JavaScript Anda di sini

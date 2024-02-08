@@ -1,16 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
 
+html {
+    height: 100%;
+}
+
 body {
     font-family: 'Protest Riot', sans-serif;
-    background-color: #FEFBF6; /* Background warna terang */
-    color: #B67352; /* Warna font utama */
+    background-color: #ffffff; /* Background warna terang */
+    color: #fdd891; /* Warna font utama */
     margin: 0;
     padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
-    background-color: #8CB9BD; /* Warna header */
-    color: #FEFBF6; /* Warna teks pada header */
+    background-color: #47aaab; /* Warna header */
+    color: #fcd790; /* Warna teks pada header */
     padding: 10px 20px;
     display: flex; /* Mengaktifkan flexbox */
     align-items: center; /* Menyelaraskan item secara vertikal */
@@ -25,6 +33,8 @@ header img {
 header h1 {
     margin: 0 20px; /* Memberikan margin di sisi kiri dan kanan */
     flex-grow: 1; /* Memungkinkan judul tumbuh dan mengisi ruang tersedia */
+    color: #d3ad58;
+    text-shadow: 1px 1px 2px black;
 }
 
 header input[type="text"] {
@@ -32,20 +42,35 @@ header input[type="text"] {
     margin: 0; /* Menghilangkan margin atas */
     border: none;
     border-radius: 5px;
-    width: 20%; /* Mengatur lebar input */
+    width: 30%; /* Mengatur lebar input */
     min-width: 150px; /* Menetapkan lebar minimal agar tidak terlalu kecil */
 }
 
+/*Ini Main*/
 
-h1, h2, h3 {
-    color: #B67352;
+main {
+    flex: 1;
+    padding: 0 20px;
+}
+
+h1, h2, h3 , h4 {
+    color: #6b6a6a;
+}
+
+#book-input h2 {
+    text-align: center;
+    margin: 0 0 5px 0;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #a67c52;
 }
 
 #book-input, #book-shelves {
-    background-color: #ECB159; /* Warna background untuk form input dan rak buku */
+    background-color: #ffe4b4; /* Warna background untuk form input dan rak buku */
     padding: 20px;
     margin-top: 20px;
     border-radius: 8px;
+    border: 1px solid #B67352; /* Border color */
+    color: #6b6a6a;
 }
 
 input[type="text"], input[type="number"] {
@@ -61,32 +86,80 @@ input[type="checkbox"] {
     margin-right: 10px;
 }
 
+label {
+    color: #6b6a6a;
+}
+
 button {
-    background-color: #8CB9BD; /* Warna tombol */
+    background-color: #46a9aa; /* Warna tombol */
     color: #FEFBF6; /* Warna teks tombol */
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-
     font-family: 'Protest Riot', sans-serif;
+
+    margin-top: 5px;
 }
 
 button:hover {
     background-color: #B67352; /* Warna tombol saat di-hover */
 }
 
+/*Ini Rak Buku*/
+
+#book-shelves {
+    display: flex; /* Mengaktifkan flexbox */
+    flex-wrap: wrap; /* Memungkinkan item berpindah ke baris berikutnya jika tidak cukup ruang */
+    justify-content: space-between; /* Mendistribusikan ruang antara item */
+    gap: 20px; /* Memberikan jarak antara rak buku */
+    margin-bottom: 20px;
+}
+
+#incompleteBookshelfList h3, #completeBookshelfList h3 {
+    text-align: center; /* Memusatkan teks */
+    margin: 0 0 5px 0;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #a67c52;
+}
+
+#book-shelves p {
+    margin: 10px 0;
+}
+
+#incompleteBookshelfList, #completeBookshelfList {
+    flex: 1; /* Masing-masing div mengambil ruang yang tersedia */
+    min-width: 300px; /* Menetapkan lebar minimal untuk masing-masing div */
+    background-color: #ffe4b4; /* Warna background untuk rak buku */
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #B67352; /* Border color */
+}
+
+.delete-button {
+    background-color: #d3302b;
+}
+
+.edit-button {
+    background-color: #4A90E2;
+}
+
+.book-item {
+    margin-bottom: 20px; /* Memberikan jarak antar item buku */
+}
+
+
 /*Ini Footer*/
 footer {
-    margin-top: 40px;
     padding: 20px;
-    background-color: #8CB9BD; /* Warna latar footer sesuai dengan palet */
-    color: #FEFBF6; /* Warna teks */
+    background-color: #47aaab; /* Warna latar footer sesuai dengan palet */
+    color: #ffffff; /* Warna teks */
     text-align: center; /* Memusatkan teks */
-    border-top: 5px solid #ECB159; /* Garis batas atas dengan warna kontras */
+    /*border-top: 5px solid #ECB159; !* Garis batas atas dengan warna kontras *!*/
 }
 
 footer p {
     margin: 5px 0; /* Memberi jarak antar paragraf */
+    text-shadow: 1px 1px black;
 }
