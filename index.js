@@ -8,9 +8,15 @@ document.addEventListener('DOMContentLoaded', function() {
     updateBookShelf();
 
     const submitForm = document.getElementById('formAddBook');
+
     submitForm.addEventListener('submit', function(event) {
         event.preventDefault();
-        addBook();
+        const bookId = document.getElementById('bookId').value;
+        if (bookId) {
+            updateBook(bookId); // Fungsi untuk memperbarui buku
+        } else {
+            addBook(); // Fungsi yang sudah ada untuk menambahkan buku
+        }
     });
 });
 
@@ -108,5 +114,45 @@ function deleteBook(bookId) {
 }
 
 function editBook(bookId) {
-    // Implementasi fungsi untuk mengedit detail buku
+    const books = JSON.parse(localStorage.getItem(bookshelfKey)) || [];
+    const book = books.find(book => book.id === bookId);
+
+    if (book) {
+        document.getElementById('bookId').value = book.id;
+        document.getElementById('title').value = book.title;
+        document.getElementById('author').value = book.author;
+        document.getElementById('year').value = book.year;
+        document.getElementById('isComplete').checked = book.isComplete;
+        document.getElementById('formButton').innerText = 'Edit Buku';
+        document.querySelector('#book-input h2').innerText = 'Edit Buku';
+    }
+}
+
+function updateBook(bookId) {
+    const books = JSON.parse(localStorage.getItem('BOOKSHELF_KEY')) || [];
+    const bookIndex = books.findIndex(book => book.id === parseInt(bookId));
+
+    if (bookIndex !== -1) {
+        books[bookIndex] = {
+            ...books[bookIndex],
+            title: document.getElementById('title').value,
+            author: document.getElementById('author').value,
+            year: parseInt(document.getElementById('year').value),
+            isComplete: document.getElementById('isComplete').checked,
+        };
+
+        localStorage.setItem('BOOKSHELF_KEY', JSON.stringify(books));
+        resetForm();
+        updateBookShelf();
+    }
+}
+
+function resetForm() {
+    document.getElementById('bookId').value = '';
+    document.getElementById('title').value = '';
+    document.getElementById('author').value = '';
+    document.getElementById('year').value = '';
+    document.getElementById('isComplete').checked = false;
+    document.getElementById('formButton').innerText = 'Tambah Buku';
+    document.querySelector('#book-input h2').innerText = 'Tambah Buku';
 }
